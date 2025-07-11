@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
+import styles from "@/styles/pages/index.module.css";
 
 export default function Home() {
   return (
@@ -11,7 +11,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body>
-        Site em desenvolvimento...
+        <h1>Loja do SMP</h1>
+        {'Site em desenvolvimento...'}
       </body>
     </>
   );

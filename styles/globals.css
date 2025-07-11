@@ -1,27 +1,11 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: 'Minercraftory';
+  src: url(/fonts/Minercraftory.ttf);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: 'Minecraftia';
+  src: url(/fonts/Minecraftia-Regular.ttf);
 }
 
 * {
@@ -35,8 +19,12 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+body {
+  font-family: 'Minecraftia';
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+h1, h2, h3 {
+  font-family: Minercraftory
 }

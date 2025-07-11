@@ -1,14 +1,16 @@
-import Link from "next/link"
+import Link from "next/link";
+
+const DISCORD_LINK = 'https://discord.gg/n3uCfqdr77';
 
 export default function Discord() {
 
     if(typeof window !== 'undefined') {
-        window.location.replace('https://discord.gg/n3uCfqdr77')
+        window.location.replace(DISCORD_LINK)
     }
 
 
     return (
-        <Link href={'https://discord.gg/n3uCfqdr77'}>
+        <Link href={DISCORD_LINK}>
             <h1>Redirecionando pro Discord...</h1>
             <p>Se você não for redirecionado(a) em alguns instantes, clique aqui.</p>
         </Link>

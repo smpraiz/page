@@ -59,10 +59,29 @@ export default function Home() {
           {
             !loading && !status?.error && status?.online ? 'Servidor online': 'Servidor offline' 
           }
-          <button>
-            <PixelIcon codename={'close'} />
-            Não clique em mim!
-          </button>
+
+          {
+            status?.online && <>
+            
+            <section className={styles.shop}>
+
+              <div className={styles.product}>
+                <h3>VIP</h3>
+                <p>Vantagens especiais</p>
+                <button>COMPRAR!</button>
+              </div>
+
+              <div className={styles.product}>
+                <h3>Home</h3>
+                <p>Se teleporte pra mais um lugar</p>
+                <button>COMPRAR!</button>
+              </div>
+
+            </section>
+
+            </>
+          }
+
         </main>
 
       </MainLayout>

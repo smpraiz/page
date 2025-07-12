@@ -1,8 +1,6 @@
 .header {
     background: #373737;
     display: flex;
-    color: white;
-    text-shadow: 0px 4px #00000047;
     justify-content: center;
     align-items: center;
     padding: 5px;
@@ -21,4 +19,28 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
+
+    .shop {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+
+        @media (max-width: 500px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        .product {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background: #373737;
+            padding: 10px;
+            box-shadow: 7px 7px #00000026;
+            width: 40dvw;
+
+            @media (max-width: 500px) {
+                width: 90dvw;
+            }
+        }
+    }
 }

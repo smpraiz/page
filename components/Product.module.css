@@ -43,3 +43,27 @@
         }
     }
 }
+
+.paymentStep, .successStep {
+    flex-direction: column;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    .paymentInfo {
+        align-items: end;
+    }
+
+    .pixCopyPaste, .paymentInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 7px;
+
+        @media (max-width: 500px) {
+            align-items: center;
+            text-align: center;
+        }
+    }
+}

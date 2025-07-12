@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "inspect": "^0.0.2",
+    "mercadopago": "^2.8.0",
     "next": "15.3.5",
     "rcon-client": "^4.2.5",
     "react": "^19.0.0",

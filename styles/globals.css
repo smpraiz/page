@@ -22,6 +22,8 @@ a {
   font-family: 'Minercraftory';
   cursor: pointer;
   font-size: small;
+  display: flex;
+  align-items: center;
 }
 
 body {
@@ -78,4 +80,15 @@ input, textarea, select {
 input:focus-visible, textarea:focus-visible, select:focus-visible {
   border-width: 2px;
   outline: 2px solid white;
+}
+
+strong {
+  font-weight: normal;
+  font-family: 'Minercraftory';
+}
+
+p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }

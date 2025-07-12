@@ -51,7 +51,7 @@ export default function Home() {
       <MainLayout>
         
         <header className={styles.header}>
-          <h1>Loja do SMP</h1>
+          <h1>Loja do SMP Raiz</h1>
         </header>
 
         <main className={styles.main}>

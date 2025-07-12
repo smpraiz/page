@@ -1,7 +1,13 @@
 .header {
     background: gray;
+    display: flex;
 }
 
 .main {
     background: url(/images/wallpaper.webp);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }

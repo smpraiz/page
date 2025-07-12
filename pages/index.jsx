@@ -58,6 +58,7 @@ export default function Home() {
           {
             !loading && !status?.error && status?.online ? 'Servidor online': 'Servidor offline' 
           }
+          <button>Não clique em mim!</button>
         </main>
 
       </MainLayout>

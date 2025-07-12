@@ -28,3 +28,19 @@ body {
 h1, h2, h3 {
   font-family: Minercraftory
 }
+
+button {
+  width: fit-content;
+  padding: 10px;
+  border-radius: 0;
+  border-top: 4px solid #16d449;
+  border-left: 4px solid #009829;
+  border-right: 4px solid #009829;
+  border-bottom: 4px solid #007921;
+  outline: 2px solid black;
+  background: linear-gradient(0deg, #009829, #00b832);
+  cursor: pointer;
+  color: white;
+  font-family: 'Minercraftory';
+  text-shadow: 0px 2px #4a4a4a;
+}

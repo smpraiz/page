@@ -32,19 +32,19 @@ export default function Home() {
         <meta content="#43B581" name="theme-color" />
         <link rel="icon" href="/favicon.png" />
         
-        <meta property="og:title" content="SMP Raiz - O Verdadeiro Minecraft Roleplay" />
-        <meta property="og:description" content="Participe do SMP mais raiz do Brasil, com mapa realista, roleplay de nações e muita história!" />
+        <meta property="og:title" content="SMP Raiz - Minecraft de verdade!" />
+        <meta property="og:description" content="Participe do SMP mais raiz do Brasil, com semi-anarquia, liberdade e sobrevivência de verdade!" />
         <meta property="og:url" content="https://smpraiz.com.br" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/favicon.png" />
         <meta property="og:image:width" content="630" />
         <meta property="og:image:height" content="630" />
 
-        <meta property="og:image:alt" content="Banner do SMP Raiz" />
+        <meta property="og:image:alt" content="Ícone do SMP Raiz" />
         
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="SMP Raiz - O Verdadeiro Minecraft Roleplay" />
-        <meta name="twitter:description" content="Participe do SMP mais raiz do Brasil, com mapa realista, roleplay de nações e muita história!" />
+        <meta name="twitter:title" content="SMP Raiz - Minecraft de verdade!" />
+        <meta name="twitter:description" content="Participe do SMP mais raiz do Brasil, com semi-anarquia, liberdade e sobrevivência de verdade!" />
         <meta name="twitter:image" content="/favicon.png" />
 
       </Head>

@@ -65,13 +65,17 @@ button:hover {
   background: linear-gradient(0deg, #00a52d, #009027);
 }
 
-input {
+input, textarea, select {
   font-family: 'Minecraftia';
   padding: 8px;
   background: #2f2f2f;
   color: white;
+  border-top: 4px solid #232323;
+  border-left: 4px solid #292929;
+  border-right: 4px solid #585858;
+  border-bottom: 4px solid #646464;
 }
-input:focus-visible {
-  border: 2px solid white;
-  outline: none;
+input:focus-visible, textarea:focus-visible, select:focus-visible {
+  border-width: 2px;
+  outline: 2px solid white;
 }

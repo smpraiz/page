@@ -50,10 +50,6 @@ export default function Home() {
       </Head>
 
       <MainLayout>
-        
-        <header className={styles.header}>
-          <h1>Loja do SMP Raiz</h1>
-        </header>
 
         <main className={styles.main}>
           {

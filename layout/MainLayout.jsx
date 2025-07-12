@@ -9,7 +9,9 @@ import styles from "@/layout/MainLayout.module.css"
 export default function MainLayout({ children }) {
     return (
         <>
-            {/* <Header /> */}
+            <header className={styles.header}>
+                <h1>SMP Raiz</h1>
+            </header>
             <main className={styles.main}>
                 {children}
             </main>

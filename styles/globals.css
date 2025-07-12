@@ -12,6 +12,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  -webkit-user-drag: none;
 }
 
 a {
@@ -27,10 +28,11 @@ body {
   font-family: 'Minecraftia';
   user-select: none;
   -webkit-user-select: none;
-  -webkit-user-drag: none;
   text-shadow: 3px 3px #00000047;
   color: white;
   overflow-x: hidden;
+  width: 100dvw;
+  min-height: 100dvh;
 }
 
 h1, h2, h3 {

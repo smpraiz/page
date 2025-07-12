@@ -51,6 +51,8 @@ export default function Home() {
 
       <MainLayout>
 
+        <img src="/images/wallpaper.webp" className={styles.background} />
+
         <main className={styles.main}>
           {
             loading===true && !status?.error && status?.online===false && 'Servidor offline' 

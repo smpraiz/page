@@ -20,6 +20,7 @@ a {
   text-decoration-thickness: 2px;
   font-family: 'Minercraftory';
   cursor: pointer;
+  font-size: small;
 }
 
 body {
@@ -56,6 +57,7 @@ button {
   display: flex;
   align-items: center;
   gap: 10px;
+  font-size: small;
 }
 button:hover {
   background: linear-gradient(0deg, #00a52d, #009027);

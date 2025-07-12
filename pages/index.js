@@ -11,7 +11,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchStatus() {
       try {
-        const res = await fetch('https://api.mcstatus.io/v2/status/java/jogar.smpraiz.com.br');
+        const res = await fetch('https://api.mcstatus.io/v2/status/java/jogar.smpraiz.com.br:10295');
         const data = await res.json();
         setStatus(data);
       } catch (error) {

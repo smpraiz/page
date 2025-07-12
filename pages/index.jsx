@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "@/styles/pages/index.module.css";
 import { useEffect, useState } from "react";
-import inspect from "inspect";
+import MainLayout from "@/layout/MainLayout";
 
 export default function Home() {
 
@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>SMP RAÍZ</title>
+        <title>SMP RAIZ</title>
         <meta name="description" content="Site do SMP RAIZ" />
         <meta content="#43B581" name="theme-color" />
         <link rel="icon" href="/favicon.png" />
@@ -47,12 +47,20 @@ export default function Home() {
         <meta name="twitter:image" content="/favicon.png" />
 
       </Head>
-      <body>
-        <h1>Loja do SMP</h1>
-        {
-          !loading && !status?.error && status?.online ? 'Servidor online': 'Servidor offline' 
-        }
-      </body>
+
+      <MainLayout>
+        
+        <header className={styles.header}>
+          <h1>Loja do SMP</h1>
+        </header>
+
+        <main className={styles.main}>
+          {
+            !loading && !status?.error && status?.online ? 'Servidor online': 'Servidor offline' 
+          }
+        </main>
+
+      </MainLayout>
     </>
   );
 }

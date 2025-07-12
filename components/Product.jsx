@@ -56,9 +56,11 @@ function ProductPopup({ product }) {
 export default function Product({ product }) {
     return (
         <div className={styles.product}>
-            <h3>{product.name} <span>R${product.price}</span></h3>
+            <section>
+                <h3>{product.name} <span>R${product.price}</span></h3>
 
-            <img src={product.icon} alt={`Ícone de ${product.name}`} />
+                <img src={product.icon} alt={`Ícone de ${product.name}`} />
+            </section>
 
             <p>{product.description}</p>
 

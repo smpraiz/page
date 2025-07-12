@@ -36,14 +36,23 @@
     }
 
     .header {
+        align-self: center;
         font-family: 'Minercraftory';
         font-size: x-large;
-        text-align: center;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        img {
+            height: 36px;
+            image-rendering: pixelated;
+        }
     }
 
     .actions {
         display: flex;
         align-items: center;
         gap: 16px;
+        align-self: center;
     }
 }

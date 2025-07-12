@@ -61,11 +61,12 @@ export default function Home() {
           }
 
           {
-            status?.online && Object.keys(PRODUCTS).map(key => {
+            status?.online && Object.keys(PRODUCTS).map(key => <>
+              <h2>{key}</h2> 
               <section className={styles.shop} key={key}>
                 {PRODUCTS[key].map(p => <Product key={p} product={p}/>)}
               </section>
-            })
+            </>)
           }
 
         </main>

@@ -6,8 +6,29 @@
     padding: 10px;
     box-shadow: 7px 7px #00000026;
     width: 40dvw;
+    justify-content: space-between;
+    align-items: stretch;
 
     @media (max-width: 500px) {
         width: 90dvw;
+    }
+
+    img {
+        image-rendering: pixelated;
+        filter: drop-shadow(4px 4px #00000040);
+        max-width: 20dvw;
+        align-self: center;
+    }
+
+    h3 {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+
+        span {
+            opacity: 75%;
+            font-family: 'Minecraftia';
+            font-size: small;
+        }
     }
 }

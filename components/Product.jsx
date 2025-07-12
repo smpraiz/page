@@ -2,23 +2,27 @@ import styles from "@/components/Product.module.css";
 import Popup from 'reactjs-popup';
 
 export const PRODUCTS = {
-    'Categoria principal': [
+    // categorias
+    'Produtos Principais': [
+        // produtos
         {
             name: 'VIP',
             price: 10.00,
-            description: 'A',
-            expanded_description: 'Aa'
+            description: 'Ganhe destaque no servidor com o VIP! Prefixo colorido, acesso a comandos exclusivos e mais visibilidade na comunidade.',
+            expanded_description: 'Com o VIP do SMP Raiz, você mostra que é raiz de verdade. Receba um prefixo especial no chat, destaque nos rankings e acesso a comandos exclusivos que facilitam sua vida no servidor. Além disso, você ajuda a manter o projeto no ar! Um jeito de jogar com estilo e ainda apoiar o servidor.',
+            icon: 'https://minecraft.wiki/images/Emerald_JE3_BE3.png?4c5f3',
         },
         {
             name: 'Home',
             price: 2.00,
-            description: 'B',
-            expanded_description: 'Bb'
-        }
-    ]
+            description: 'Adicione ainda mais um ponto de /home no seu jogo e facilite sua vida no SMP!',
+            expanded_description: 'Cansado de ter que escolher entre sua casa, sua farm ou sua base secreta? Com esse produto, você ganha mais um slot de /home permanente! Assim, pode se teletransportar com facilidade para mais lugares importantes no seu mundo. Prático, rápido e perfeito pra quem joga sério.',
+            icon: 'https://minecraft.wiki/images/Ender_Pearl_JE3_BE2.png?829a7',
+        },
+    ],
 }
 
-export function ProductPopup({ product }) {
+function ProductPopup({ product }) {
     return <>
         <Popup
             trigger={<button className="button"> COMPRAR! </button>}
@@ -28,7 +32,7 @@ export function ProductPopup({ product }) {
             {close => (
                 <div className="modal">
 
-                    <header className="header"> {product.name} </header>
+                    <header className="header"> <img src={product.icon} alt={`Ícone de ${product.name}`} /> {product.name} </header>
 
                     <main className="content"> {product.expanded_description} </main>
 
@@ -52,7 +56,10 @@ export function ProductPopup({ product }) {
 export default function Product({ product }) {
     return (
         <div className={styles.product}>
-            <h3>{product.name}</h3>
+            <h3>{product.name} <span>R${product.price}</span></h3>
+
+            <img src={product.icon} alt={`Ícone de ${product.name}`} />
+
             <p>{product.description}</p>
 
             <ProductPopup product={product} />

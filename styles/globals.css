@@ -64,3 +64,14 @@ button {
 button:hover {
   background: linear-gradient(0deg, #00a52d, #009027);
 }
+
+input {
+  font-family: 'Minecraftia';
+  padding: 8px;
+  background: #2f2f2f;
+  color: white;
+}
+input:focus-visible {
+  border: 2px solid white;
+  outline: none;
+}

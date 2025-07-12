@@ -60,9 +60,9 @@ export default function Home() {
 
           {
             status?.online && Object.keys(PRODUCTS).map(key => <>
-              <h2>{key}</h2> 
-              <section className={styles.shop} key={key}>
-                {PRODUCTS[key].map(p => <Product key={p} product={p}/>)}
+              <h2 key={key}>{key}</h2> 
+              <section className={styles.shop} key={`${key}-section`}>
+                {PRODUCTS[key].map(p => <Product key={p.id} product={p}/>)}
               </section>
             </>)
           }

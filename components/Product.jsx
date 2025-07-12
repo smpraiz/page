@@ -1,6 +1,7 @@
 import styles from "@/components/Product.module.css";
 import Popup from 'reactjs-popup';
 import { useEffect, useRef, useState } from 'react';
+import Link from "next/link";
 
 function translateStatus(status) {
     const map = {
@@ -194,6 +195,7 @@ function ProductPopup({ product }) {
                                 <form onSubmit={handleFormSubmit}>
                                     <input type="hidden" name="product" value={product.id} />
                                     {product.fields?.map(field => renderField(field, product.name))}
+                                    <p className={styles.terms}>Ao comprar este produto você concorda com nossos <Link href={'/terms'}>Termos de Uso</Link> e <Link href={'/privacy'}>Política de privacidade</Link>.</p>
 
                                     <div className="actions">
                                         <a onClick={close} disabled={loading}>Cancelar</a>

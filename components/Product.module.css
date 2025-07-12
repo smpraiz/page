@@ -67,3 +67,16 @@
         }
     }
 }
+
+.terms {
+    display: inline;
+    font-size: small;
+    opacity: 75%;
+
+    a {
+        display: inline;
+        font-family: inherit;
+        font-size: inherit;
+        text-decoration: line-through;
+    }
+}

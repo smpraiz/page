@@ -5,13 +5,13 @@
     background: #373737;
     padding: 10px;
     box-shadow: 7px 7px #00000026;
-    width: min-content;
+    width: 20rem;
     aspect-ratio: 3 / 4;
     justify-content: space-between;
     align-items: stretch;
 
     @media (max-width: 500px) {
-        width: 90dvw;
+        width: 100%;
     }
 
     section {

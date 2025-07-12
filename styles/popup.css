@@ -21,12 +21,16 @@
 .popup-content {
     background-color: #373737;
     border: none;
-    max-width: 90dvw;
+    max-width: 50dvw;
     display: flex;
     flex-direction: column;
     box-shadow: 9px 7px #00000026;
     -webkit-animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
     animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
+
+    @media (max-width: 500px) {
+      max-width: 90dvw;
+    }
 
     .modal {
         display: flex;

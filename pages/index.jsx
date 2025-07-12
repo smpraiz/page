@@ -29,7 +29,7 @@ export default function Home() {
       <Head>
         <title>SMP RAIZ</title>
         <meta name="description" content="Site do SMP RAIZ" />
-        <meta content="#43B581" name="theme-color" />
+        <meta content="#373737" name="theme-color" />
         <link rel="icon" href="/favicon.png" />
         
         <meta property="og:title" content="SMP Raiz - Minecraft de verdade!" />

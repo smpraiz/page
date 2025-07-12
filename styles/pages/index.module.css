@@ -19,14 +19,11 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
+    padding: 20px;
 
     .shop {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        flex-wrap: wrap;
         gap: 10px;
-
-        @media (max-width: 500px) {
-            grid-template-columns: repeat(1, 1fr);
-        }
     }
 }

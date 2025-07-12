@@ -32,7 +32,7 @@ function buildCommand({ player, product, extra }) {
     case 'bau':
       return `give ${player} chest 1`;
     case 'home':
-      return `discord broadcast ${player} home`;
+      return `smpstore home ${player}`;
     case 'unban':
       return `pardon ${player}`;
     case 'gemas_1':
@@ -55,7 +55,6 @@ function buildCommand({ player, product, extra }) {
       return `msg ${player} Obrigado pela compra no SMP Raiz!`;
   }
 }
-
 
 /**
  * Entrega o item no servidor via RCON

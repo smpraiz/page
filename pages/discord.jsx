@@ -8,9 +8,8 @@ export default function Discord() {
         window.location.replace(DISCORD_LINK)
     }
 
-
     return (
-        <Link href={DISCORD_LINK}>
+        <Link href={DISCORD_LINK} style={{textDecoration: 'none', color: 'black'}}>
             <h1>Redirecionando pro Discord...</h1>
             <p>Se você não for redirecionado(a) em alguns instantes, clique aqui.</p>
         </Link>

@@ -57,7 +57,7 @@ export default function Home() {
 
         <main className={styles.main}>
           {
-            loading===false && !status?.error && status?.online ? 'Servidor online': 'Servidor offline' 
+            loading===true && !status?.error && status?.online===false && 'Servidor offline' 
           }
 
           {

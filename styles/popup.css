@@ -1,3 +1,18 @@
+@keyframes anvil {
+  0% {
+    transform: scale(1) translateY(0px);
+    opacity: 0;
+  }
+  1% {
+    transform: scale(0.96) translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+  }
+}
+
 .popup-overlay {
     backdrop-filter: blur(5px);
     background: #00000059;
@@ -10,6 +25,8 @@
     display: flex;
     flex-direction: column;
     box-shadow: 9px 7px #00000026;
+    -webkit-animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
+    animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
 
     .modal {
         display: flex;

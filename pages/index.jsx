@@ -2,7 +2,6 @@ import Head from "next/head";
 import styles from "@/styles/pages/index.module.css";
 import { useEffect, useState } from "react";
 import MainLayout from "@/layout/MainLayout";
-import PixelIcon from "@/components/PixelIcon";
 
 export default function Home() {
 
@@ -57,7 +56,7 @@ export default function Home() {
 
         <main className={styles.main}>
           {
-            !loading && !status?.error && status?.online ? 'Servidor online': 'Servidor offline' 
+            loading===false && !status?.error && status?.online ? 'Servidor online': 'Servidor offline' 
           }
 
           {

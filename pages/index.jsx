@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "@/styles/pages/index.module.css";
 import { useEffect, useState } from "react";
 import MainLayout from "@/layout/MainLayout";
-import ProductPopup from "@/components/ProductPopup";
+import Product, { PRODUCTS } from "@/components/Product";
 
 export default function Home() {
 
@@ -65,19 +65,7 @@ export default function Home() {
             
             <section className={styles.shop}>
 
-              <div className={styles.product}>
-                <h3>VIP</h3>
-                <p>Vantagens especiais</p>
-
-                <ProductPopup />
-
-              </div>
-
-              <div className={styles.product}>
-                <h3>Home</h3>
-                <p>Se teleporte pra mais um lugar</p>
-                <button>COMPRAR!</button>
-              </div>
+              {PRODUCTS.map(p => <Product product={p} />)}
 
             </section>
 

@@ -61,15 +61,11 @@ export default function Home() {
           }
 
           {
-            status?.online && <>
-            
-            <section className={styles.shop}>
-
-              {PRODUCTS.map(p => <Product product={p} />)}
-
-            </section>
-
-            </>
+            status?.online && Object.keys(PRODUCTS).map(key => {
+              <section className={styles.shop} key={key}>
+                {PRODUCTS[key].map(p => <Product key={p} product={p}/>)}
+              </section>
+            })
           }
 
         </main>

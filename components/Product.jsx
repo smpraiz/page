@@ -1,20 +1,22 @@
 import styles from "@/components/Product.module.css";
 import Popup from 'reactjs-popup';
 
-export const PRODUCTS = [
-    {
-        name: 'VIP',
-        price: 10.00,
-        description: 'A',
-        expanded_description: 'Aa'
-    },
-    {
-        name: 'Home',
-        price: 2.00,
-        description: 'B',
-        expanded_description: 'Bb'
-    }
-]
+export const PRODUCTS = {
+    'Categoria principal': [
+        {
+            name: 'VIP',
+            price: 10.00,
+            description: 'A',
+            expanded_description: 'Aa'
+        },
+        {
+            name: 'Home',
+            price: 2.00,
+            description: 'B',
+            expanded_description: 'Bb'
+        }
+    ]
+}
 
 export function ProductPopup({ product }) {
     return <>

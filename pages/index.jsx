@@ -51,7 +51,7 @@ export default function Home() {
 
       <MainLayout>
 
-        <img src="/images/wallpaper.webp" className={styles.background} />
+        <img src="/images/wallpaper.png" className={styles.background} />
 
         <main className={styles.main}>
           {

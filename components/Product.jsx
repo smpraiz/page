@@ -230,12 +230,12 @@ export const PRODUCTS = {
  */
 function renderField(field, productName) {
     const fieldId = `${productName}-${field.name}`;
-    
+
     if (field.type === "select") {
         return (
-            <select 
-                key={field.name} 
-                name={field.name} 
+            <select
+                key={field.name}
+                name={field.name}
                 id={fieldId}
                 required={field.required || false}
                 defaultValue=""
@@ -248,19 +248,19 @@ function renderField(field, productName) {
                 ))}
             </select>
         );
+    } else {
+        // Campo padrão (text, email, etc.)
+        return (
+            <input
+                key={field.name}
+                type={field.type}
+                name={field.name}
+                placeholder={field.placeholder}
+                id={fieldId}
+                required={field.required || false}
+            />
+        );
     }
-    
-    // Campo padrão (text, email, etc.)
-    return (
-        <input 
-            key={field.name} 
-            type={field.type} 
-            name={field.name} 
-            placeholder={field.placeholder} 
-            id={fieldId}
-            required={field.required || false} 
-        />
-    );
 }
 
 /**
@@ -279,22 +279,22 @@ function ProductPopup({ product }) {
             {close => (
                 <form action="/api/sell" method="post" className="modal">
 
-                    <header className="header"> 
-                        <img src={product.icon} alt={`Ícone de ${product.name}`} /> 
-                        {product.name} 
+                    <header className="header">
+                        <img src={product.icon} alt={`Ícone de ${product.name}`} />
+                        {product.name}
                     </header>
 
-                    <main className="content"> 
-                        {product.expanded_description} 
+                    <main className="content">
+                        {product.expanded_description}
 
                         <input type="hidden" name="product" value={product.id} />
-                        
+
                         {/* Renderização dinâmica dos campos */}
                         {product.fields?.map(field => renderField(field, product.name))}
                     </main>
 
                     <footer className="actions">
-                        <a onClick={() => {close()}}>
+                        <a onClick={() => { close() }}>
                             Cancelar
                         </a>
 
@@ -306,7 +306,7 @@ function ProductPopup({ product }) {
             )}
         </Popup>
     </>
-}
+};
 
 export default function Product({ product }) {
     return (

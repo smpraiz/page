@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "@/styles/pages/index.module.css";
 import { useEffect, useState } from "react";
 import MainLayout from "@/layout/MainLayout";
+import PixelIcon from "@/components/PixelIcon";
 
 export default function Home() {
 
@@ -58,7 +59,10 @@ export default function Home() {
           {
             !loading && !status?.error && status?.online ? 'Servidor online': 'Servidor offline' 
           }
-          <button>Não clique em mim!</button>
+          <button>
+            <PixelIcon codename={'close'} />
+            Não clique em mim!
+          </button>
         </main>
 
       </MainLayout>

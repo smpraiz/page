@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "@/styles/pages/index.module.css";
 import { useEffect, useState } from "react";
 import MainLayout from "@/layout/MainLayout";
+import ProductPopup from "@/components/ProductPopup";
 
 export default function Home() {
 
@@ -67,7 +68,9 @@ export default function Home() {
               <div className={styles.product}>
                 <h3>VIP</h3>
                 <p>Vantagens especiais</p>
-                <button>COMPRAR!</button>
+
+                <ProductPopup />
+
               </div>
 
               <div className={styles.product}>

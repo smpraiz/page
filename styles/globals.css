@@ -19,6 +19,7 @@ a {
   text-decoration: underline;
   text-decoration-thickness: 2px;
   font-family: 'Minercraftory';
+  cursor: pointer;
 }
 
 body {

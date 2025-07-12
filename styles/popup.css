@@ -1,0 +1,31 @@
+.popup-overlay {
+    backdrop-filter: blur(5px);
+    background: #00000059;
+}
+
+.popup-content {
+    background-color: #373737;
+    border: none;
+    max-width: 90dvw;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 9px 7px #00000026;
+
+    .modal {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .header {
+        font-family: 'Minercraftory';
+        font-size: x-large;
+    }
+
+    .actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+}

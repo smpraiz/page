@@ -28,8 +28,24 @@ export default function Home() {
       <Head>
         <title>SMP RAÍZ</title>
         <meta name="description" content="Site do SMP RAIZ" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+        <meta content="#43B581" name="theme-color" />
         <link rel="icon" href="/favicon.png" />
+        
+        <meta property="og:title" content="SMP Raiz - O Verdadeiro Minecraft Roleplay" />
+        <meta property="og:description" content="Participe do SMP mais raiz do Brasil, com mapa realista, roleplay de nações e muita história!" />
+        <meta property="og:url" content="https://smpraiz.com.br" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/favicon.png" />
+        <meta property="og:image:width" content="630" />
+        <meta property="og:image:height" content="630" />
+
+        <meta property="og:image:alt" content="Banner do SMP Raiz" />
+        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="SMP Raiz - O Verdadeiro Minecraft Roleplay" />
+        <meta name="twitter:description" content="Participe do SMP mais raiz do Brasil, com mapa realista, roleplay de nações e muita história!" />
+        <meta name="twitter:image" content="/favicon.png" />
+
       </Head>
       <body>
         <h1>Loja do SMP</h1>

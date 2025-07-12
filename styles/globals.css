@@ -30,7 +30,7 @@ body {
   -webkit-user-drag: none;
   text-shadow: 3px 3px #00000047;
   color: white;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 h1, h2, h3 {

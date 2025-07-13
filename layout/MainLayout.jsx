@@ -12,8 +12,9 @@ export default function MainLayout({ children }) {
     const router = useRouter();
 
     const navLinks = [
-        { href: "/", label: "Início" },
         { href: "/discord", label: "Discord" },
+        { href: "/shop", label: "Loja" },
+        { href: "/", label: "Início" },
         { href: "/terms", label: "Termos" },
         { href: "/privacy", label: "Privacidade" },
     ];

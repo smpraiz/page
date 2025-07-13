@@ -1,8 +1,7 @@
 import styles from "@/styles/pages/index.module.css";
-import { useEffect, useState } from "react";
 import MainLayout from "@/layout/MainLayout";
-import Product, { PRODUCTS } from "@/components/Product";
 import CustomHead from "@/components/CustomHead";
+import { useState, useEffect } from "react";
 
 export default function Home() {
 
@@ -26,29 +25,13 @@ export default function Home() {
 
   return (
     <>
-      <CustomHead 
-        pageTitle="SMP Raiz - Loja!"
-        pageDescription="Compre ranks, kits e outros itens cosméticos para o SMP Raiz. Apoie o servidor e melhore sua experiência de jogo!"
-        pageUrl="https://smpraiz.com.br"
-      />
+      <CustomHead />
 
       <MainLayout>
 
         <img src="/images/wallpaper.png" className={styles.background} />
 
         <main className={styles.main}>
-          {
-            loading===true && !status?.error && status?.online===false && 'Servidor offline' 
-          }
-
-          {
-            status?.online && Object.keys(PRODUCTS).map(key => <>
-              <h2 key={key}>{key}</h2> 
-              <section className={styles.shop} key={`${key}-section`}>
-                {PRODUCTS[key].map(p => <Product key={p.id} product={p}/>)}
-              </section>
-            </>)
-          }
 
         </main>
 

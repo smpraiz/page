@@ -17,7 +17,7 @@
     flex-grow: 1;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
     padding: 20px;
 
     h1 {
@@ -26,10 +26,9 @@
 
     .container {
         background: #373737;
-        border: 4px solid gray;
         padding: 10px;
         overflow: auto;
-        height: 75dvh;
+        height: 70dvh;
         display: flex;
         flex-direction: column;
         gap: 10px;

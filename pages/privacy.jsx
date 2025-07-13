@@ -1,7 +1,7 @@
 import Head from "next/head";
-import Link from "next/link";
 import styles from "@/styles/pages/terms.module.css";
 import MainLayout from "@/layout/MainLayout";
+import Link from "next/link";
 
 export default function Privacy() {
 

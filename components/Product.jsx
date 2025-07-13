@@ -1,7 +1,7 @@
 import styles from "@/components/Product.module.css";
 import Popup from 'reactjs-popup';
-import { useEffect, useRef, useState } from 'react';
 import Link from "next/link";
+import { useEffect, useState } from 'react';
 
 function translateStatus(status) {
     const map = {
@@ -190,7 +190,7 @@ function ProductPopup({ product }) {
                                     <input type="hidden" name="product" value={product.id} />
                                     
                                     {/** Mandatory player input */}
-                                    <div style={{display: 'flex'}}>
+                                    <div style={{display: 'flex', alignItems: 'center'}}>
                                         <img 
                                             src={playerName.startsWith('_') ? 
                                                 `https://api.creepernation.net/avatar/${playerName.slice(1)}/bedrock`
@@ -221,7 +221,7 @@ function ProductPopup({ product }) {
                                     <p className={styles.terms}>Ao comprar este produto você concorda com nossos <Link href={'/terms'}>Termos de Uso</Link> e <Link href={'/privacy'}>Política de privacidade</Link>.</p>
 
                                     <div className="actions">
-                                        <a onClick={close} disabled={loading}>Cancelar</a>
+                                        <Link onClick={close} disabled={loading}>Cancelar</Link>
                                         <button type="submit" disabled={loading}>
                                             {loading ? 'Processando...' : 'Comprar!'}
                                         </button>

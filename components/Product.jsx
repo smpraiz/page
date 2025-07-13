@@ -221,7 +221,7 @@ function ProductPopup({ product }) {
                                     <p className={styles.terms}>Ao comprar este produto você concorda com nossos <Link href={'/terms'}>Termos de Uso</Link> e <Link href={'/privacy'}>Política de privacidade</Link>.</p>
 
                                     <div className="actions">
-                                        <Link onClick={close} disabled={loading}>Cancelar</Link>
+                                        <a onClick={close} disabled={loading}>Cancelar</a>
                                         <button type="submit" disabled={loading}>
                                             {loading ? 'Processando...' : 'Comprar!'}
                                         </button>

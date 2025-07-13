@@ -22,14 +22,6 @@ export const PRODUCTS = {
             description: 'Cansado de ter que escolher entre sua casa, sua farm ou sua base secreta? Adicione ainda mais um ponto de /home no seu jogo e facilite sua vida no SMP!',
             expanded_description: 'Cansado de ter que escolher entre sua casa, sua farm ou sua base secreta? Com esse produto, você ganha mais um slot de /home permanente! Assim, pode se teletransportar com facilidade para mais lugares importantes no seu mundo. Prático, rápido e perfeito pra quem joga sério.',
             icon: 'https://minecraft.wiki/images/Ender_Pearl_JE3_BE2.png?829a7',
-            fields: [
-                {
-                    type: "text",
-                    name: "player",
-                    placeholder: "Nick do jogador...",
-                    required: true,
-                },
-            ],
         }
     ]
 }
@@ -87,6 +79,8 @@ function ProductPopup({ product }) {
     const [paymentStatus, setPaymentStatus] = useState(null);
     const [error, setError] = useState(null);
     const [pollingId, setPollingId] = useState(null);
+
+    const [playerName, setPlayerName] = useState('');
 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
@@ -194,7 +188,36 @@ function ProductPopup({ product }) {
 
                                 <form onSubmit={handleFormSubmit}>
                                     <input type="hidden" name="product" value={product.id} />
-                                    {product.fields?.map(field => renderField(field, product.name))}
+                                    
+                                    {/** Mandatory player input */}
+                                    <div style={{display: 'flex'}}>
+                                        <img 
+                                            src={playerName.startsWith('_') ? 
+                                                `https://api.creepernation.net/avatar/${playerName.slice(1)}/bedrock`
+                                                : `https://mc-heads.net/avatar/${playerName}`} 
+                                            width="42"
+                                            height="42" 
+                                            style={{
+                                                background: 'url(https://mc-heads.net/avatar/MHF_Steve) no-repeat center', 
+                                                backgroundSize: 'cover'
+                                            }}
+                                            onError={(e) => e.target.src = 'https://mc-heads.net/avatar/MHF_Steve'}
+                                        />
+                                        
+                                        <input
+                                            type="text"
+                                            name="player"
+                                            placeholder={'Nick do jogador...'}
+                                            id={`${product.id}-player`}
+                                            required={true}
+                                            value={playerName}
+                                            onChange={(e) => setPlayerName(e.target.value.replace(/[^a-zA-Z0-9_]/g, '').slice(0, 16))}
+                                            style={{flexGrow: 1}}
+                                        />
+                                    </div>
+
+                                    {product.fields?.map(field => renderField(field, product.id))}
+
                                     <p className={styles.terms}>Ao comprar este produto você concorda com nossos <Link href={'/terms'}>Termos de Uso</Link> e <Link href={'/privacy'}>Política de privacidade</Link>.</p>
 
                                     <div className="actions">

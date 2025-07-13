@@ -27,8 +27,8 @@ export const PRODUCTS = {
             name: 'Home',
             id: 'home',
             price: 2.00,
-            description: 'Cansado de ter que escolher entre sua casa, sua farm ou sua base secreta? Adicione ainda mais um ponto de /home no seu jogo e facilite sua vida no SMP!',
-            expanded_description: 'Cansado de ter que escolher entre sua casa, sua farm ou sua base secreta? Com esse produto, você ganha mais um slot de /home permanente! Assim, pode se teletransportar com facilidade para mais lugares importantes no seu mundo. Prático, rápido e perfeito pra quem joga sério.',
+            description: 'Cansado(a) de ter que escolher entre sua casa, sua farm ou sua base secreta? Adicione ainda mais um ponto de /home no seu jogo e facilite sua vida no SMP!',
+            expanded_description: 'Cansado(a) de ter que escolher entre sua casa, sua farm ou sua base secreta? Com esse produto, você ganha mais um slot de /home permanente! Assim, pode se teletransportar com facilidade para mais lugares importantes no seu mundo. Prático, rápido e perfeito pra quem joga sério.',
             icon: 'https://minecraft.wiki/images/Ender_Pearl_JE3_BE2.png?829a7',
         }
     ]

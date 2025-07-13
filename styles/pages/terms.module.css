@@ -33,6 +33,7 @@
         flex-direction: column;
         gap: 10px;
         text-align: justify;
+        box-shadow: 7px 7px #00000026;
 
         p {
             display: inline;

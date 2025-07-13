@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const DISCORD_LINK = 'https://discord.gg/n3uCfqdr77';
+export const DISCORD_LINK = 'https://discord.gg/n3uCfqdr77';
 
 export default function Discord() {
 
@@ -9,7 +9,7 @@ export default function Discord() {
     }
 
     return (
-        <Link href={DISCORD_LINK} style={{textDecoration: 'none', color: 'black'}}>
+        <Link href={DISCORD_LINK} style={{textDecoration: 'none', color: 'black', textShadow: 'none', display: 'inline'}}>
             <h1>Redirecionando pro Discord...</h1>
             <p>Se você não for redirecionado(a) em alguns instantes, clique aqui.</p>
         </Link>

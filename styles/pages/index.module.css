@@ -17,6 +17,22 @@
     flex-grow: 1;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
     padding: 20px;
+
+    .container {
+        background: #373737;
+        padding: 10px;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: justify;
+        box-shadow: 7px 7px #00000026;
+
+        p {
+            display: inline;
+        }
+
+    }
 }

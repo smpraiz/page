@@ -62,6 +62,7 @@ button {
   align-items: center;
   gap: 10px;
   font-size: small;
+  text-decoration: none !important;
 }
 button:hover {
   background: linear-gradient(0deg, #00a52d, #009027);

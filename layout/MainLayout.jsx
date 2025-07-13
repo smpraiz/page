@@ -1,18 +1,19 @@
 import styles from "@/layout/MainLayout.module.css"
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { DISCORD_LINK } from "@/pages/discord";
 
 /**
  * Layout principal do site
  * @param {Object} properties
  * @param {Element} properties.children - Elementos dentro do main layout
- * @returns 
+ * @returns {JSX.Element} Componente MainLayout
  */
 export default function MainLayout({ children }) {
     const router = useRouter();
 
     const navLinks = [
-        { href: "/discord", label: "Discord" },
+        { href: DISCORD_LINK, label: "Discord", target: "_blank", rel: "noopener noreferrer" },
         { href: "/shop", label: "Loja" },
         { href: "/", label: "Início" },
         { href: "/terms", label: "Termos" },
@@ -34,6 +35,8 @@ export default function MainLayout({ children }) {
                                     ? `${styles.navLink} ${styles.navLinkActive}`
                                     : styles.navLink
                             }
+                            target={link.target ? link.target : undefined}
+                            rel={link.rel ? link.rel : undefined}
                         >
                             {link.label}
                         </Link>

@@ -1,7 +1,7 @@
 // pages/api/deliver.js
 import { Rcon } from "rcon-client";
 
-async function sendDiscordNotification({ player, product, amount = 1 }) {
+async function sendDiscordNotification({ player, productName, amount = 1 }) {
   const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
   if (!webhookUrl) return;
 
@@ -10,7 +10,7 @@ async function sendDiscordNotification({ player, product, amount = 1 }) {
     color: 0x00FF00,
     fields: [
       { name: "Jogador", value: `\`${player}\``, inline: true },
-      { name: "Produto", value: `\`${product}\``, inline: true },
+      { name: "Produto", value: `\`${productName}\``, inline: true },
       { name: "Valor", value: `R$ ${amount.toFixed(2)}`, inline: true },
     ],
     timestamp: new Date().toISOString(),
@@ -29,28 +29,10 @@ async function sendDiscordNotification({ player, product, amount = 1 }) {
  */
 function buildCommand({ player, product, extra }) {
   switch (product) {
-    case 'bau':
-      return `give ${player} chest 1`;
     case 'home':
       return `smpstore home ${player}`;
-    case 'unban':
-      return `pardon ${player}`;
-    case 'gemas_1':
-      return `eco give ${player} 100`;
-    case 'gemas_2':
-      return `eco give ${player} 500`;
-    case 'gemas_3':
-      return `eco give ${player} 1000`;
-    case 'cor_nick_1':
-      return `nick set ${player} ${extra?.color || '&7' + player}`;
-    case 'cor_nick_2':
-      return `nick set ${player} ${extra?.custom_color || player}`;
-    case 'vip_1':
-      return `lp user ${player} parent add vip`;
-    case 'vip_2':
-      return `lp user ${player} parent add vipplus`;
-    case 'vip_3':
-      return `lp user ${player} parent add vipmvp`;
+    case 'vip1':
+      return `smpstore vip1 ${player}`;
     default:
       return `msg ${player} Obrigado pela compra no SMP Raiz!`;
   }
@@ -66,7 +48,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: 'Método não permitido' });
   }
 
-  const { player, product, extra } = req.body;
+  const { player, product, productName, extra } = req.body;
 
   if (!player || !product) {
     return res.status(400).json({ message: 'Dados insuficientes para entrega' });
@@ -85,7 +67,7 @@ export default async function handler(req, res) {
     await rcon.end();
 
     // Envia aviso para o Discord
-    await sendDiscordNotification({ player, product, amount: req.body.amount || 1 });
+    await sendDiscordNotification({ player, productName, amount: req.body.amount || 1 });
 
     return res.status(200).json({ success: true, response });
   } catch (err) {

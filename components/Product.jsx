@@ -30,6 +30,14 @@ export const PRODUCTS = {
             description: 'Cansado(a) de ter que escolher entre sua casa, sua farm ou sua base secreta? Adicione ainda mais um ponto de /home no seu jogo e facilite sua vida no SMP!',
             expanded_description: 'Cansado(a) de ter que escolher entre sua casa, sua farm ou sua base secreta? Com esse produto, você ganha mais um slot de /home permanente! Assim, pode se teletransportar com facilidade para mais lugares importantes no seu mundo. Prático, rápido e perfeito pra quem joga sério.',
             icon: 'https://minecraft.wiki/images/Ender_Pearl_JE3_BE2.png?829a7',
+        },
+        {
+            name: 'VIP (30 dias)',
+            id: 'vip1',
+            price: 10.00,
+            description: 'O VIP é o rank mais popular do servidor, com várias vantagens legais como redução no tempo de espera do /home e do /tpa, kits semanais (kit VIP), e 3 homes a mais de brinde!',
+            expanded_description: 'O VIP é o rank mais popular do servidor, com várias vantagens legais como redução no tempo de espera do /home e do /tpa, kits semanais (kit VIP), e 3 homes a mais de brinde! Além disso, você ajuda a manter o servidor ativo e em crescimento. O VIP dura 30 dias e é renovável.',
+            icon: 'https://minecraft.wiki/images/Nether_Star.gif?fb01f',
         }
     ]
 }
@@ -151,6 +159,7 @@ function ProductPopup({ product }) {
                 body: JSON.stringify({
                     player: paymentData.player,
                     product: paymentData.product,
+                    productName: paymentData.productName,
                     amount: paymentData.amount,
                     extra: {
                         color: paymentData.color,
@@ -196,6 +205,7 @@ function ProductPopup({ product }) {
 
                                 <form onSubmit={handleFormSubmit}>
                                     <input type="hidden" name="product" value={product.id} />
+                                    <input type="hidden" name="productName" value={product.name} />
                                     
                                     {/** Mandatory player input */}
                                     <div id={styles.playerInput}>

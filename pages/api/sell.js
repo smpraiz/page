@@ -17,14 +17,14 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { product, player, color, custom_color } = req.body;
+    const { product, productName, player, color, custom_color } = req.body;
 
     if (!product || !player) {
       return res.status(400).json({ message: 'Dados obrigatórios não informados' });
     }
 
     const amount = getPriceByProductId(product);
-    const description = buildDescription({ product, player, color, custom_color });
+    const description = buildDescription({ product, productName, player, color, custom_color });
 
     const payment = await paymentApi.create({
       body: {
@@ -51,9 +51,10 @@ export default async function handler(req, res) {
       pixCode: point_of_interaction.transaction_data.qr_code,
       expiresAt: point_of_interaction.transaction_data.qr_code_expiration_date,
       amount,
-      player,        // adicione
-      product,       // adicione
-      color,         // adicione se existir
+      player,
+      product,
+      productName,
+      color,
       custom_color
     });
   } catch (error) {
@@ -71,8 +72,8 @@ function getPriceByProductId(productId) {
   return 0.02; // valor padrão caso não encontre
 }
 
-function buildDescription({ product, player, color, custom_color }) {
-  let desc = `[SMP Raiz] Produto: ${product} | Jogador: ${player}`;
+function buildDescription({ product, productName, player, color, custom_color }) {
+  let desc = `[SMP Raiz] Produto: ${productName} (${product}) | Jogador: ${player}`;
   if (color) desc += ` | Cor: ${color}`;
   if (custom_color) desc += ` | Cor Customizada: ${custom_color}`;
   return desc;

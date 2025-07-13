@@ -1,34 +1,17 @@
-import Head from "next/head";
 import styles from "@/styles/pages/terms.module.css";
 import MainLayout from "@/layout/MainLayout";
 import Link from "next/link";
+import CustomHead from "@/components/CustomHead";
 
 export default function Privacy() {
 
   return (
     <>
-      <Head>
-        <title>SMP RAIZ - Política de privacidade da loja</title>
-        <meta name="description" content="Site do SMP RAIZ" />
-        <meta content="#373737" name="theme-color" />
-        <link rel="icon" href="/favicon.png" />
-        
-        <meta property="og:title" content="SMP Raiz - Minecraft de verdade!" />
-        <meta property="og:description" content="Participe do SMP mais raiz do Brasil, com semi-anarquia, liberdade e sobrevivência de verdade!" />
-        <meta property="og:url" content="https://smpraiz.com.br" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="/favicon.png" />
-        <meta property="og:image:width" content="630" />
-        <meta property="og:image:height" content="630" />
-
-        <meta property="og:image:alt" content="Ícone do SMP Raiz" />
-        
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="SMP Raiz - Minecraft de verdade!" />
-        <meta name="twitter:description" content="Participe do SMP mais raiz do Brasil, com semi-anarquia, liberdade e sobrevivência de verdade!" />
-        <meta name="twitter:image" content="/favicon.png" />
-
-      </Head>
+      <CustomHead
+        pageTitle="SMP Raiz - Política de Privacidade"
+        pageDescription="Saiba como o SMP Raiz coleta, usa e protege suas informações pessoais em nossa loja online."
+        pageUrl="https://smpraiz.com.br/privacy"
+      />
 
       <MainLayout>
 

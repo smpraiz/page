@@ -3,6 +3,11 @@ import Popup from 'reactjs-popup';
 import Link from "next/link";
 import { useEffect, useState } from 'react';
 
+/**
+ * Traduz o status do pagamento
+ * @param {String} status - Status do pagamento 
+ * @returns {String} Status traduzido
+ */
 function translateStatus(status) {
     const map = {
         approved: 'Aprovado',
@@ -13,6 +18,9 @@ function translateStatus(status) {
     return map[status] || status;
 }
 
+/**
+ * Produtos disponíveis na loja
+ */
 export const PRODUCTS = {
     'Principais': [
         {
@@ -30,7 +38,7 @@ export const PRODUCTS = {
  * Função para renderizar campos dinâmicos
  * @param {{}} field - Objeto do field dos produtos
  * @param {String} productName - Nome do produto
- * @returns 
+ * @returns {JSX.Element} Campo renderizado
  */
 function renderField(field, productName) {
     const fieldId = `${productName}-${field.name}`;
@@ -67,10 +75,10 @@ function renderField(field, productName) {
 }
 
 /**
- * 
+ * Popup de compra do produto
  * @param {Object} properties
  * @param {{}} properties.product 
- * @returns 
+ * @returns {JSX.Element} Popup de compra do produto
  */
 function ProductPopup({ product }) {
     const [currentStep, setCurrentStep] = useState('form');
@@ -190,17 +198,13 @@ function ProductPopup({ product }) {
                                     <input type="hidden" name="product" value={product.id} />
                                     
                                     {/** Mandatory player input */}
-                                    <div style={{display: 'flex', alignItems: 'center'}}>
+                                    <div id={styles.playerInput}>
                                         <img 
                                             src={playerName.startsWith('_') ? 
                                                 `https://api.creepernation.net/avatar/${playerName.slice(1)}/bedrock`
                                                 : `https://mc-heads.net/avatar/${playerName}`} 
-                                            width="42"
-                                            height="42" 
-                                            style={{
-                                                background: 'url(https://mc-heads.net/avatar/MHF_Steve) no-repeat center', 
-                                                backgroundSize: 'cover'
-                                            }}
+                                            width={160}
+                                            height={160}
                                             onError={(e) => e.target.src = 'https://mc-heads.net/avatar/MHF_Steve'}
                                         />
                                         
@@ -212,7 +216,6 @@ function ProductPopup({ product }) {
                                             required={true}
                                             value={playerName}
                                             onChange={(e) => setPlayerName(e.target.value.replace(/[^a-zA-Z0-9_]/g, '').slice(0, 16))}
-                                            style={{flexGrow: 1}}
                                         />
                                     </div>
 
@@ -285,10 +288,10 @@ function ProductPopup({ product }) {
 }
 
 /**
- * 
- * @param {Object} properties
- * @param {{}} properties.product 
- * @returns 
+ * Componente de produto
+ * @param {Object} properties - Propriedades do componente
+ * @param {{}} properties.product - Produto a ser exibido
+ * @returns {JSX.Element} Componente de produto
  */
 export default function Product({ product }) {
     return (

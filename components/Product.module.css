@@ -80,3 +80,25 @@
         text-decoration: line-through;
     }
 }
+
+#playerInput {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    img {
+        background: url(https://mc-heads.net/avatar/MHF_Steve) no-repeat center;
+        background-size: cover;
+        position: absolute;
+        height: 50%;
+        width: auto;
+        left: 10px;
+        top: 10px;
+        image-rendering: pixelated;
+    }
+
+    input {
+        flex-grow: 1;
+        padding-left: 40px;
+    }
+}

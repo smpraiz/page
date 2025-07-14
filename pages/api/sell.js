@@ -17,13 +17,17 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { product, productName, player, color, custom_color } = req.body;
+    let { product, productName, player, color, custom_color, quantity } = req.body;
 
     if (!product || !player) {
       return res.status(400).json({ message: 'Dados obrigatórios não informados' });
     }
 
-    const amount = getPriceByProductId(product);
+    if(!quantity) quantity = 1;
+
+    // Calcula o valor total
+    let amount = getPriceByProductId(product) * Number(quantity);
+
     const description = buildDescription({ product, productName, player, color, custom_color });
 
     const payment = await paymentApi.create({
@@ -55,7 +59,8 @@ export default async function handler(req, res) {
       product,
       productName,
       color,
-      custom_color
+      custom_color,
+      quantity
     });
   } catch (error) {
     console.error('Erro ao criar pagamento:', error);
@@ -69,7 +74,7 @@ function getPriceByProductId(productId) {
     const found = category.find(p => p.id === productId);
     if (found) return found.price;
   }
-  return 0.02; // valor padrão caso não encontre
+  return 0.01; // valor padrão caso não encontre
 }
 
 function buildDescription({ product, productName, player, color, custom_color }) {

@@ -30,6 +30,17 @@ export const PRODUCTS = {
             description: 'Cansado(a) de ter que escolher entre sua casa, sua farm ou sua base secreta? Adicione ainda mais um ponto de /home no seu jogo e facilite sua vida no SMP!',
             expanded_description: 'Cansado(a) de ter que escolher entre sua casa, sua farm ou sua base secreta? Com esse produto, você ganha mais um slot de /home permanente! Assim, pode se teletransportar com facilidade para mais lugares importantes no seu mundo. Prático, rápido e perfeito pra quem joga sério.',
             icon: 'https://minecraft.wiki/images/Ender_Pearl_JE3_BE2.png?829a7',
+            fields: [
+                {
+                    name: 'quantity',
+                    type: 'number',
+                    placeholder: 'Quantidade de homes (1-10)',
+                    required: true,
+                    min: 1,
+                    max: 10,
+                    value: 1,
+                },
+            ],
         },
         {
             name: 'Apoiador',
@@ -85,6 +96,9 @@ function renderField(field, productName) {
                 placeholder={field.placeholder}
                 id={fieldId}
                 required={field.required || false}
+                min={field.min}
+                max={field.max}
+                defaultValue={field.value || ''}
             />
         );
     }
@@ -169,6 +183,7 @@ function ProductPopup({ product }) {
                     product: paymentData.product,
                     productName: paymentData.productName,
                     amount: paymentData.amount,
+                    quantity: paymentData.quantity,
                     extra: {
                         color: paymentData.color,
                         custom_color: paymentData.custom_color,
@@ -214,8 +229,7 @@ function ProductPopup({ product }) {
                                 <form onSubmit={handleFormSubmit}>
                                     <input type="hidden" name="product" value={product.id} />
                                     <input type="hidden" name="productName" value={product.name} />
-                                    
-                                    {/** Mandatory player input */}
+
                                     <div id={styles.playerInput}>
                                         <img 
                                             src={playerName.startsWith('_') ? 

@@ -27,10 +27,10 @@ async function sendDiscordNotification({ player, productName, amount = 1 }) {
 /**
  * Gera o comando de acordo com o produto comprado
  */
-function buildCommand({ player, product, extra }) {
+function buildCommand({ player, product, extra, quantity=1 }) {
   switch (product) {
     case 'home':
-      return `smpstore home ${player}`;
+      return `smpstore home ${player} ${quantity}`;
     case 'apoiador':
       return `smpstore apoiador ${player}`;
     case 'vip1':
@@ -50,13 +50,14 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: 'Método não permitido' });
   }
 
-  const { player, product, productName, extra } = req.body;
+  const { player, product, productName, extra, quantity } = req.body;
 
   if (!player || !product) {
     return res.status(400).json({ message: 'Dados insuficientes para entrega' });
   }
 
-  const command = buildCommand({ player, product, extra });
+  // Garante que a quantidade seja passada para o comando
+  const command = buildCommand({ player, product, extra, quantity: quantity || 1 });
 
   try {
     const rcon = await Rcon.connect({

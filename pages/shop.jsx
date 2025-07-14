@@ -34,8 +34,6 @@ export default function Shop() {
 
       <MainLayout>
 
-        <img src="/images/wallpaper.png" className={styles.background} />
-
         <main className={styles.main}>
           {
             loading===true && !status?.error && status?.online===false && 'Servidor offline' 

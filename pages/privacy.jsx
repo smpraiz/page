@@ -15,8 +15,6 @@ export default function Privacy() {
 
       <MainLayout>
 
-        <img src="/images/wallpaper.png" className={styles.background} />
-
         <main className={styles.main}>
           
           <h1>Política de Privacidade</h1>

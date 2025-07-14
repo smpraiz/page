@@ -15,8 +15,6 @@ export default function Terms() {
 
       <MainLayout>
 
-        <img src="/images/wallpaper.png" className={styles.background} />
-
         <main className={styles.main}>
           
           <h1>Termos de uso</h1>

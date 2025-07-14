@@ -20,6 +20,7 @@
     header {
         display: flex;
         flex-direction: column;
+        overflow: auto;
 
         h3 {
             display: flex;
@@ -48,7 +49,7 @@
 
     main {
         overflow: auto;
-        mask-image: linear-gradient(180deg, black 90%, transparent);
+        mask-image: linear-gradient(180deg, transparent 0%, black 10%, black 50%, black 92%, transparent 100%);
 
         p {
             padding: 10px 0;

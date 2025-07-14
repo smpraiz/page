@@ -31,6 +31,8 @@ function buildCommand({ player, product, extra }) {
   switch (product) {
     case 'home':
       return `smpstore home ${player}`;
+    case 'apoiador':
+      return `smpstore apoiador ${player}`;
     case 'vip1':
       return `smpstore vip1 ${player}`;
     default:

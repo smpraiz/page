@@ -33,16 +33,13 @@ export default function Terms() {
               3. Compras e Pagamentos: Todas as compras feitas na loja são finais. Não oferecemos reembolsos, exceto quando exigido por lei ou quando a entrega do produto não for viável. Reservamo-nos o direito de recusar ou cancelar qualquer pedido a nosso critério.
             </p>
             <p>
-              4. Propriedade Intelectual: Todo o conteúdo da loja, incluindo textos, imagens, logotipos e software, é protegido por direitos autorais e outras leis de propriedade intelectual. Você não pode usar esse conteúdo sem nossa permissão expressa.
+              4. Modificações nos Termos: Reservamo-nos o direito de modificar estes termos a qualquer momento. Quaisquer alterações serão publicadas nesta página e entrarão em vigor imediatamente após a publicação.
             </p>
             <p>
-              5. Modificações nos Termos: Reservamo-nos o direito de modificar estes termos a qualquer momento. Quaisquer alterações serão publicadas nesta página e entrarão em vigor imediatamente após a publicação.
+              5. Limitação de Responsabilidade: Não seremos responsáveis por quaisquer danos diretos, indiretos, incidentais ou consequenciais decorrentes do uso ou incapacidade de uso da loja.
             </p>
             <p>
-              6. Limitação de Responsabilidade: Não seremos responsáveis por quaisquer danos diretos, indiretos, incidentais ou consequenciais decorrentes do uso ou incapacidade de uso da loja.
-            </p>
-            <p>
-              7. Lei Aplicável: Estes termos serão regidos e interpretados de acordo com as leis do Brasil.
+              6. Lei Aplicável: Estes termos serão regidos e interpretados de acordo com as leis do Brasil.
             </p>
             <p>
               O uso contínuo ou realização de qualquer compra em nosso site será considerado como aceitação dos nossos termos de uso. Se você tiver alguma dúvida sobre estes termos, entre em contato conosco no <Link href={'/discord'}>Discord do SMP RAIZ</Link> antes de usar a loja.

@@ -32,6 +32,14 @@ export const PRODUCTS = {
             icon: 'https://minecraft.wiki/images/Ender_Pearl_JE3_BE2.png?829a7',
         },
         {
+            name: 'Apoiador',
+            id: 'apoiador',
+            price: 5.00,
+            description: 'Mostre que você é um verdadeiro apoiador do SMP Raiz com o rank Apoiador! Com ele, você ganha um prefixo exclusivo, possibilidade de falar colorido, comando /chapéu e a satisfação de ajudar o servidor a crescer e melhorar cada vez mais.',
+            expanded_description: 'Mostre que você é um verdadeiro apoiador do SMP Raiz com o rank Apoiador! Com ele, você ganha um prefixo exclusivo, possibilidade de falar colorido, comando /chapéu e a satisfação de ajudar o servidor a crescer e melhorar cada vez mais. O rank Apoiador é vitalício, ou seja, você não precisa se preocupar em renovar ou perder suas vantagens. Além disso, você estará contribuindo para manter o servidor ativo, com novidades e eventos para toda a comunidade. Seja um Apoiador e faça parte dessa jornada!',
+            icon: 'https://minecraft.wiki/images/Nether_Star.gif?fb01f',
+        },
+        {
             name: 'VIP (30 dias)',
             id: 'vip1',
             price: 7.99,

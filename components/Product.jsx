@@ -26,7 +26,7 @@ export const PRODUCTS = {
         {
             name: 'Home',
             id: 'home',
-            price: 2.00,
+            price: 2.22,
             description: 'Cansado(a) de ter que escolher entre sua casa, sua farm ou sua base secreta? Adicione ainda mais um ponto de /home no seu jogo e facilite sua vida no SMP!',
             expanded_description: 'Cansado(a) de ter que escolher entre sua casa, sua farm ou sua base secreta? Com esse produto, você ganha mais um slot de /home permanente! Assim, pode se teletransportar com facilidade para mais lugares importantes no seu mundo. Prático, rápido e perfeito pra quem joga sério.',
             icon: 'https://minecraft.wiki/images/Ender_Pearl_JE3_BE2.png?829a7',
@@ -45,7 +45,7 @@ export const PRODUCTS = {
         {
             name: 'Apoiador',
             id: 'apoiador',
-            price: 5.00,
+            price: 5.55,
             description: 'Mostre que você é um verdadeiro apoiador do SMP Raiz com o rank Apoiador! Com ele, você ganha um prefixo exclusivo, possibilidade de falar colorido, comando /chapéu e a satisfação de ajudar o servidor a crescer e melhorar cada vez mais.',
             expanded_description: 'Mostre que você é um verdadeiro apoiador do SMP Raiz com o rank Apoiador! Com ele, você ganha um prefixo exclusivo, possibilidade de falar colorido, comando /chapéu e a satisfação de ajudar o servidor a crescer e melhorar cada vez mais. O rank Apoiador é vitalício, ou seja, você não precisa se preocupar em renovar ou perder suas vantagens. Além disso, você estará contribuindo para manter o servidor ativo, com novidades e eventos para toda a comunidade. Seja um Apoiador e faça parte dessa jornada!',
             icon: 'https://minecraft.wiki/images/Golden_Apple_JE2_BE2.png?aa827',
@@ -53,12 +53,23 @@ export const PRODUCTS = {
         {
             name: 'VIP (30 dias)',
             id: 'vip1',
-            price: 7.99,
+            price: 8.86,
             description: 'O VIP é o rank mais popular do servidor, com várias vantagens legais como redução no tempo de espera do /home e do /tpa, kits semanais (kit VIP), e 3 homes a mais de brinde!',
             expanded_description: 'O VIP é o rank mais popular do servidor, com várias vantagens legais como redução no tempo de espera do /home e do /tpa, kits semanais (kit VIP), e 3 homes a mais de brinde! Além disso, você ajuda a manter o servidor ativo e em crescimento. O VIP dura 30 dias e é renovável.',
             icon: 'https://minecraft.wiki/images/Nether_Star.gif?fb01f',
         },
     ],
+}
+
+/**
+ * Cupons disponíveis
+ */
+export const COUPONS = {
+    'JAKE': 0.10,
+    'JUAUM': 0.10,
+    'GATINHO': 0.10,
+    'GABRIEL': 0.10,
+    'DONU': 0.10
 }
 
 /**
@@ -88,6 +99,7 @@ function renderField(field, productName) {
             </select>
         );
     } else {
+        if(field.name == 'quantity') return;
         return (
             <input
                 key={field.name}
@@ -119,6 +131,10 @@ function ProductPopup({ product }) {
     const [pollingId, setPollingId] = useState(null);
 
     const [playerName, setPlayerName] = useState('');
+    const [coupon, setCoupon] = useState('');
+    const [previewPrice, setPreviewPrice] = useState(product.price);
+    const [quantity, setQuantity] = useState(product.fields?.find(f => f.name === 'quantity')?.defaultValue || 1);
+    const [couponStatus, setCouponStatus] = useState(null);
 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
@@ -150,6 +166,24 @@ function ProductPopup({ product }) {
             setLoading(false);
         }
     };
+
+    // Preview do preço considerando quantidade e cupom
+    useEffect(() => {
+        let basePrice = product.price;
+        let qty = Number(quantity) || 1;
+        let finalPrice = basePrice * qty;
+
+        // Simulação de cupom (pode ser adaptado para API)
+        if (Object.keys(COUPONS).includes(coupon.trim().toUpperCase())) {
+            finalPrice = finalPrice * (1 - COUPONS[coupon.trim().toUpperCase()]);
+            setCouponStatus(`Cupom aplicado: ${COUPONS[coupon.trim().toUpperCase()] * 100}% de desconto!`);
+        } else if (coupon.trim()) {
+            setCouponStatus('Cupom inválido ou expirado.');
+        } else {
+            setCouponStatus(null);
+        }
+        setPreviewPrice(finalPrice.toFixed(2));
+    }, [quantity, coupon, product.price]);
 
     const startPaymentPolling = (paymentId) => {
         const interval = setInterval(async () => {
@@ -211,8 +245,13 @@ function ProductPopup({ product }) {
             {close => (
                 <div className="modal">
                     <header className="header">
-                        <img src={product.icon} alt={`Ícone de ${product.name}`} />
-                        {product.name}
+                        <span>
+                            <img src={product.icon} alt={`Ícone de ${product.name}`} />
+                            {product.name}
+                        </span>
+                        <span style={{fontFamily: 'Minecraftia', opacity: '75%'}}>
+                            R${paymentData?.amount?.toFixed(2) || previewPrice}
+                        </span>
                     </header>
 
                     <main className="content">
@@ -250,8 +289,40 @@ function ProductPopup({ product }) {
                                             onChange={(e) => setPlayerName(e.target.value.replace(/[^a-zA-Z0-9_]/g, '').slice(0, 16))}
                                         />
                                     </div>
+                                    
+                                    {/* Campo de quantidade se existir */}
+                                    {product.fields?.filter(field => field.name === 'quantity').map(field => (
+                                        <input
+                                            key={field.name}
+                                            type="number"
+                                            name="quantity"
+                                            placeholder={field.placeholder}
+                                            id={`${product.id}-quantity`}
+                                            required={field.required || false}
+                                            min={field.min}
+                                            max={field.max}
+                                            value={quantity}
+                                            onChange={e => setQuantity(e.target.value)}
+                                        />
+                                    ))}
 
+                                    {/* Outros campos */}
                                     {product.fields?.map(field => renderField(field, product.id))}
+                                    
+                                    {/* Campo de cupom de desconto */}
+                                    <input
+                                        type="text"
+                                        name="coupon"
+                                        id="coupon"
+                                        placeholder="Cupom de desconto? (ex: SMP10)"
+                                        value={coupon}
+                                        onChange={e => setCoupon(e.target.value.toUpperCase().replace(/[^A-Z0-9]+/g, ''))}
+                                    />
+                                    {couponStatus && (
+                                        <span style={{ color: couponStatus.includes('Cupom aplicado') ? 'lime' : 'red' }}>
+                                            {couponStatus}
+                                        </span>
+                                    )}
 
                                     <p className={styles.terms}>Ao comprar este produto você concorda com nossos <Link href={'/terms'}>Termos de Uso</Link> e <Link href={'/privacy'}>Política de privacidade</Link>.</p>
 
@@ -274,30 +345,28 @@ function ProductPopup({ product }) {
                                     alt="QR Code PIX"
                                     style={{ maxWidth: '300px' }}
                                 />
+                                <div className={styles.paymentInfo}>
+                                    <p>{translateStatus(paymentStatus)}</p>
+                                </div>
 
                                 <div className="actions">
                                     <div className={styles.pixCopyPaste}>
                                         <p>Ou copie o código PIX:</p>
-                                        <input
-                                            type="text"
-                                            value={paymentData.pixCode}
-                                            name="pixCode"
-                                            id="pixCode"
-                                            readOnly
-                                            onClick={(e) => e.target.select()}
-                                        />
-                                        <button
-                                            onClick={() => navigator.clipboard.writeText(paymentData.pixCode)}
-                                            className="copy-button"
-                                        >
-                                            Copiar
-                                        </button>
-                                    </div>
-
-                                    <div className={styles.paymentInfo}>
-                                        <p><strong>Valor:</strong> R$ {paymentData.amount}</p>
-                                        <p><strong>Status:</strong> {translateStatus(paymentStatus)}</p>
-                                        <button onClick={close}>Fechar</button>
+                                        <div id={styles.pixCodeContainer}>
+                                            <input
+                                                type="text"
+                                                value={paymentData.pixCode}
+                                                name="pixCode"
+                                                id="pixCode"
+                                                readOnly
+                                                onClick={(e) => e.target.select()}
+                                            />
+                                            <button
+                                                onClick={() => navigator.clipboard.writeText(paymentData.pixCode)}
+                                            >
+                                                Copiar
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

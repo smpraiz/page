@@ -1,7 +1,7 @@
 // pages/api/deliver.js
 import { Rcon } from "rcon-client";
 
-async function sendDiscordNotification({ player, productName, amount = 1 }) {
+async function sendDiscordNotification({ player, productName, amount = 1, quantity = 1, coupon = null }) {
   const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
   if (!webhookUrl) return;
 
@@ -12,6 +12,8 @@ async function sendDiscordNotification({ player, productName, amount = 1 }) {
       { name: "Jogador", value: `\`${player}\``, inline: true },
       { name: "Produto", value: `\`${productName}\``, inline: true },
       { name: "Valor", value: `R$ ${amount.toFixed(2)}`, inline: true },
+      ...(Number(quantity) > 1 ? [{ name: "Quantidade", value: `${quantity}`, inline: true }] : []),
+      ...(coupon ? [{ name: "Cupom", value: `\`${coupon}\``, inline: true }] : []),
     ],
     timestamp: new Date().toISOString(),
     footer: { text: "SMP Raiz - Minecraft de verdade!" }
@@ -50,7 +52,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: 'Método não permitido' });
   }
 
-  const { player, product, productName, extra, quantity } = req.body;
+  const { player, product, productName, extra, quantity, coupon } = req.body;
 
   if (!player || !product) {
     return res.status(400).json({ message: 'Dados insuficientes para entrega' });
@@ -70,7 +72,13 @@ export default async function handler(req, res) {
     await rcon.end();
 
     // Envia aviso para o Discord
-    await sendDiscordNotification({ player, productName, amount: req.body.amount || 1 });
+    await sendDiscordNotification({
+      player,
+      productName,
+      amount: req.body.amount || 1,
+      quantity: quantity || 1,
+      coupon: coupon || null
+    });
 
     return res.status(200).json({ success: true, response });
   } catch (err) {

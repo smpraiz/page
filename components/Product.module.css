@@ -67,19 +67,30 @@
     align-items: center;
     text-align: center;
 
-    .paymentInfo {
-        align-items: end;
-    }
-
     .pixCopyPaste, .paymentInfo {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         gap: 7px;
+        align-items: center;
+        text-align: center;
+        width: 100%;
 
-        @media (max-width: 500px) {
-            align-items: center;
-            text-align: center;
+        #pixCodeContainer {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+            justify-content: center;
+
+            input {
+                overflow: hidden;
+            }
+
+            button {
+                min-width: fit-content;
+            }
         }
     }
 }

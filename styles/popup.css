@@ -49,11 +49,17 @@
     font-size: x-large;
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 10px;
 
     img {
       height: 36px;
       image-rendering: pixelated;
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
   }
 

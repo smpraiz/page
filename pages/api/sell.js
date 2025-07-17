@@ -1,5 +1,5 @@
 import { MercadoPagoConfig, Payment } from "mercadopago";
-import { PRODUCTS } from "@/components/Product"; // ajuste o caminho se necessário
+import { PRODUCTS, COUPONS } from "@/components/Product"; // ajuste o caminho se necessário
 
 const useSandbox = String(process.env.USE_SANDBOX).toUpperCase() === 'TRUE';
 
@@ -17,7 +17,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    let { product, productName, player, color, custom_color, quantity } = req.body;
+    let { product, productName, player, color, custom_color, quantity, coupon } = req.body;
 
     if (!product || !player) {
       return res.status(400).json({ message: 'Dados obrigatórios não informados' });
@@ -26,7 +26,21 @@ export default async function handler(req, res) {
     if(!quantity) quantity = 1;
 
     // Calcula o valor total
-    let amount = getPriceByProductId(product) * Number(quantity);
+    let basePrice = getPriceByProductId(product);
+    let amount = basePrice * Number(quantity);
+
+    // Aplica cupom se válido
+    let appliedCoupon = null;
+    if (coupon && typeof coupon === 'string') {
+      const couponKey = coupon.trim().toUpperCase();
+      if (COUPONS[couponKey]) {
+        amount = amount * (1 - COUPONS[couponKey]);
+        appliedCoupon = couponKey;
+      }
+    }
+
+    // Arredonda para 2 casas decimais
+    amount = Number(amount.toFixed(2));
 
     const description = buildDescription({ product, productName, player, color, custom_color });
 
@@ -60,7 +74,8 @@ export default async function handler(req, res) {
       productName,
       color,
       custom_color,
-      quantity
+      quantity,
+      coupon: appliedCoupon
     });
   } catch (error) {
     console.error('Erro ao criar pagamento:', error);

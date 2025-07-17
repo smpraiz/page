@@ -51,7 +51,7 @@ export default function Home() {
               Se junte a nós!
             </h1>
             <p>
-              Para entrar no servidor, adicione o seguinte endereço no seu Minecraft:
+              Para entrar no servidor, adicione o seguinte endereço IP no seu Minecraft:
             </p>
             <input type="text" name="ip" id="Ip" readOnly value={'jogar.smpraiz.com.br'} onClick={(e) => e.target.select()} />
             <input type="text" name="port" id="Port" readOnly value={'10295'} onClick={(e) => e.target.select()} />

@@ -35,6 +35,10 @@ body {
   overflow-x: hidden;
   width: 100dvw;
   min-height: 100dvh;
+  background-image: url(/images/wallpaper.png);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
 }
 
 h1, h2, h3 {

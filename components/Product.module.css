@@ -2,7 +2,9 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background: #373737;
+    background: conic-gradient(from 180deg at 2px calc(100% - 2px), #6a6b6c 90deg, transparent 0), conic-gradient(from 0 at calc(100% - 2px) 2px, #6a6b6c 90deg, transparent 0), linear-gradient(to top, #464747 2px, transparent 0px), linear-gradient(to bottom, #5a5b5c 2px, transparent 0px), linear-gradient(to left, #464747 2px, transparent 0px), linear-gradient(to right, #5a5b5c 2px, transparent 0px);
+    background-color: #313233;
+    border: 2px solid black;
     padding: 10px;
     box-shadow: 7px 7px #00000026;
     width: 20rem;

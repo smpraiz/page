@@ -10,18 +10,35 @@
     padding: 20px;
 
     .container {
-        background: #373737;
-        padding: 10px;
+        background: conic-gradient(from 180deg at 2px calc(100% - 2px), #6a6b6c 90deg, transparent 0), conic-gradient(from 0 at calc(100% - 2px) 2px, #6a6b6c 90deg, transparent 0), linear-gradient(to top, #464747 2px, transparent 0px), linear-gradient(to bottom, #5a5b5c 2px, transparent 0px), linear-gradient(to left, #464747 2px, transparent 0px), linear-gradient(to right, #5a5b5c 2px, transparent 0px);
+        background-color: #313233;
+        border: 2px solid black;
         overflow: auto;
         display: flex;
         flex-direction: column;
-        gap: 10px;
         text-align: justify;
         box-shadow: 7px 7px #00000026;
+
+        h1 {
+            background: conic-gradient(from 180deg at 2px calc(100% - 2px), #7c7c7d 90deg, transparent 0), conic-gradient(from 0 at calc(100% - 2px) 2px, #7c7c7d 90deg, transparent 0), linear-gradient(to top, #5a5b5c 2px, transparent 0), linear-gradient(to bottom, #6d6d6e 2px, transparent 0), linear-gradient(to left, #5a5b5c 2px, transparent 0), linear-gradient(to right, #6d6d6e 2px, transparent 0);
+            padding: 10px;
+            background-color: #48494a;
+            border-bottom: 2px solid black;
+            margin: 0;
+        }
 
         p {
             display: inline;
         }
 
+    }
+    .container > * {
+        margin: 5px 10px;
+    }
+    .container > :first-child:not(h1) {
+        margin-top: 10px !important;
+    }
+    .container > :last-child {
+        margin-bottom: 10px !important;
     }
 }

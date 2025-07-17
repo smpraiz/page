@@ -3,10 +3,12 @@
     transform: scale(1) translateY(0px);
     opacity: 0;
   }
+
   1% {
     transform: scale(0.96) translateY(10px);
     opacity: 0;
   }
+
   100% {
     transform: scale(1) translateY(0px);
     opacity: 1;
@@ -14,69 +16,70 @@
 }
 
 .popup-overlay {
-    backdrop-filter: blur(5px);
-    background: #00000059;
+  backdrop-filter: blur(5px);
+  background: #00000059;
 }
 
 .popup-content {
-    background-color: #373737;
-    border: none;
-    width: max-content;
-    max-width: 31rem;
+  background: conic-gradient(from 180deg at 2px calc(100% - 2px), #6a6b6c 90deg, transparent 0), conic-gradient(from 0 at calc(100% - 2px) 2px, #6a6b6c 90deg, transparent 0), linear-gradient(to top, #464747 2px, transparent 0px), linear-gradient(to bottom, #5a5b5c 2px, transparent 0px), linear-gradient(to left, #464747 2px, transparent 0px), linear-gradient(to right, #5a5b5c 2px, transparent 0px);
+  background-color: #313233;
+  border: 2px solid black;
+  width: max-content;
+  max-width: 31rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 9px 7px #00000026;
+  -webkit-animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
+  animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
+
+  @media (max-width: 500px) {
+    max-width: 90dvw;
+  }
+
+  .modal {
     display: flex;
     flex-direction: column;
-    box-shadow: 9px 7px #00000026;
-    -webkit-animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
-    animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
+    gap: 10px;
+    padding: 10px;
+  }
 
-    @media (max-width: 500px) {
-      max-width: 90dvw;
+  .header {
+    align-self: center;
+    font-family: 'Minercraftory';
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    img {
+      height: 36px;
+      image-rendering: pixelated;
     }
+  }
 
-    .modal {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        padding: 10px;
-    }
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
-    .header {
-        align-self: center;
-        font-family: 'Minercraftory';
-        font-size: x-large;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-
-        img {
-            height: 36px;
-            image-rendering: pixelated;
-        }
-    }
-
-    .content {
+    form {
       display: flex;
       flex-direction: column;
       gap: 10px;
-
-      form {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
     }
+  }
 
-    .actions {
-      display: flex;
-      align-items: stretch;
-      gap: 16px;
-      align-self: center;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      width: 100%;
+  .actions {
+    display: flex;
+    align-items: stretch;
+    gap: 16px;
+    align-self: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
 
-      @media (max-width: 500px) {
-        justify-content: center;
-      }
+    @media (max-width: 500px) {
+      justify-content: center;
     }
+  }
 }

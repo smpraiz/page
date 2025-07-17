@@ -45,8 +45,6 @@ export default function MainLayout({ children }) {
 
             </header>
 
-            <img className={styles.background} src="/images/wallpaper.png" alt="Papel de parede" />
-            
             <main className={styles.main}>
                 {children}
             </main>

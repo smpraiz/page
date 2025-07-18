@@ -35,10 +35,19 @@ body {
   overflow-x: hidden;
   width: 100dvw;
   min-height: 100dvh;
-  background-image: url(/images/wallpaper.png);
-  background-attachment: fixed;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  background-image: url('/images/wallpaper.png');
   background-size: cover;
   background-position: center;
+  z-index: -1;
 }
 
 h1, h2, h3 {

@@ -26,6 +26,8 @@
   border: 2px solid black;
   width: max-content;
   max-width: 31rem;
+  max-height: 90dvh;
+  overflow: auto;
   display: flex;
   flex-direction: column;
   box-shadow: 9px 7px #00000026;
@@ -60,6 +62,9 @@
       display: flex;
       align-items: center;
       gap: 4px;
+      height: 100%;
+      align-content: center;
+      font-size: large;
     }
   }
 

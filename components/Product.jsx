@@ -218,6 +218,7 @@ function ProductPopup({ product }) {
                     productName: paymentData.productName,
                     amount: paymentData.amount,
                     quantity: paymentData.quantity,
+                    coupon: paymentData.coupon,
                     extra: {
                         color: paymentData.color,
                         custom_color: paymentData.custom_color,

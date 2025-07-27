@@ -5,16 +5,19 @@ async function sendDiscordNotification({ player, productName, amount = 1, quanti
   const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
   if (!webhookUrl) return;
 
+  let fields = [
+    { name: "Jogador", value: `\`${player}\``, inline: true },
+    { name: "Produto", value: `\`${productName}\``, inline: true },
+    { name: "Valor", value: `R$ ${amount.toFixed(2)}`, inline: true },
+  ]
+
+  Number(quantity) > 1 && fields.push({ name: "Quantidade", value: `${quantity}`, inline: true });
+  coupon && fields.push({ name: "Cupom", value: `\`${coupon}\``, inline: true });
+
   const embed = {
     title: "🛒 Nova compra no SMP Raiz!",
     color: 0x00FF00,
-    fields: [
-      { name: "Jogador", value: `\`${player}\``, inline: true },
-      { name: "Produto", value: `\`${productName}\``, inline: true },
-      { name: "Valor", value: `R$ ${amount.toFixed(2)}`, inline: true },
-      ...(Number(quantity) > 1 ? [{ name: "Quantidade", value: `${quantity}`, inline: true }] : []),
-      ...(coupon ? [{ name: "Cupom", value: `\`${coupon}\``, inline: true }] : []),
-    ],
+    fields,
     timestamp: new Date().toISOString(),
     footer: { text: "SMP Raiz - Minecraft de verdade!" }
   };
@@ -77,7 +80,7 @@ export default async function handler(req, res) {
       productName,
       amount: req.body.amount || 1,
       quantity: quantity || 1,
-      coupon: coupon || null
+      coupon: coupon,
     });
 
     return res.status(200).json({ success: true, response });

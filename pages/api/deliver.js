@@ -66,9 +66,9 @@ export default async function handler(req, res) {
 
   try {
     const rcon = await Rcon.connect({
-      host: 'br-enx-1.enxadahost.com',
-      port: 10296,
-      password: 'SenhaSegura123',
+      host: process.env.RCON_HOST,
+      port: process.env.RCON_PORT,
+      password: process.env.RCON_PASSWORD
     });
 
     const response = await rcon.send(command);
